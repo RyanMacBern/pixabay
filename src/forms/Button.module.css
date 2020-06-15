@@ -1,0 +1,21 @@
+@import './forms.css';
+
+.button {
+  color: var(--white);
+  background-color: var(--very-dark-gray);
+  padding: var(--form-field-padding) calc(var(--form-field-padding) * 3);
+  box-sizing: border-box;
+  border-radius: var(--form-field-border-radius);
+}
+
+.button:hover {
+  background: var(--gray);
+}
+
+.button:focus {
+  box-shadow: var(--form-focus-shadow);
+}
+
+.button:active {
+  transform: translateY(2px);
+}

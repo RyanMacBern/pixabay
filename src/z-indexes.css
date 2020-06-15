@@ -1,0 +1,7 @@
+:root {
+  --z-index-thumbnail: 1;
+  --z-index-save: 2;
+  --z-index-loading: 3;
+  --z-index-saves: 4;
+  --z-index-sidebar: 5;
+}

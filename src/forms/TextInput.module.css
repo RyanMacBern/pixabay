@@ -1,0 +1,17 @@
+@import './forms.css';
+
+.textInput {
+  color: var(--white);
+  background-color: var(--very-dark-gray);
+  padding: var(--form-field-padding);
+  box-sizing: border-box;
+  border-radius: var(--form-field-border-radius);
+}
+
+.textInput:focus {
+  box-shadow: var(--form-focus-shadow);
+}
+
+.textInput::placeholder {
+  color: var(--light-gray);
+}

@@ -1,0 +1,26 @@
+{
+  "apiEndpoint": "https://pixabay.com/api/",
+  "apiKey": "13136421-266c28a6d61717bc2e4e6a83e",
+  "categories": [
+    "backgrounds",
+    "fashion",
+    "nature",
+    "science",
+    "education",
+    "feelings",
+    "health",
+    "people",
+    "religion",
+    "places",
+    "animals",
+    "industry",
+    "computer",
+    "food",
+    "sports",
+    "transportation",
+    "travel",
+    "buildings",
+    "business",
+    "music"
+  ]
+}

@@ -1,0 +1,19 @@
+.wrapper {
+  padding: 20px 0;
+}
+
+.logo {
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+
+.backToTop {
+  font-size: 30px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+  background: var(--dark-gray);
+  border-radius: 100%;
+}

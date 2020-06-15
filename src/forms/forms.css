@@ -1,0 +1,5 @@
+:root {
+  --form-field-padding: 0.5em;
+  --form-field-border-radius: 6px;
+  --form-focus-shadow: 0 0 2px 1px var(--blue-66);
+}

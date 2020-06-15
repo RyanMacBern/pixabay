@@ -1,0 +1,102 @@
+.result {
+  display: flex;
+  width: 400px;
+  height: 150px;
+  padding: 10px;
+}
+
+/* photo */
+.photo {
+  position: relative;
+  flex: 0 0 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.photo .img {
+  max-width: 100%;
+  max-height: 100%;
+  z-index: var(--z-index-thumbnail);
+  /* checker background */
+  background: linear-gradient(45deg,#efefef 25%,transparent 0,transparent 75%,#efefef 0,#efefef),linear-gradient(45deg,#efefef 25%,transparent 0,transparent 75%,#efefef 0,#efefef);
+  background-position: 0 0,10px 10px;
+  background-color: #fff;
+  background-size: 21px 21px;
+}
+.photo .imgBlur {
+  filter: blur(8px);
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  background-size: cover;
+  background-color: rgba(255,255,255,0.5);
+}
+
+/* save */
+.save {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: var(--z-index-save);
+  color: var(--white);
+}
+.heartIcon,
+.heartFilledIcon {
+  filter: drop-shadow( 1px 1px 2px rgba(0, 0, 0, 0.6));
+}
+.save .heartFilledIcon {
+  display: none;
+}
+.save:hover .heartIcon {
+  display: none;
+}
+.save:hover .heartFilledIcon {
+  display: initial;
+}
+.save.saved {
+  color: var(--red);
+}
+.save.saved .heartIcon {
+  display: none;
+}
+.save.saved .heartFilledIcon {
+  display: initial;
+}
+
+/* info */
+.info {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.8em;
+  padding: 0.5em;
+}
+.count:first-child {
+  margin-right: 0.7em;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 5px;
+  background: var(--blue-33);
+  border-radius: 4px;
+  margin: 0 0.5em 0.5em 0;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.tag.selected {
+  background: var(--blue);
+  cursor: default;
+}
+.tag:focus {
+  border: none;
+  outline: none;
+}
+.count {
+  white-space: nowrap;
+}
