@@ -38,8 +38,9 @@ const Result = (props: Props) => {
       </a>
       <div className={styles.info}>
         <div className={styles.tags}>
-          {result.tags.split(',').map(tag => {
-            const selected = query?.toLocaleLowerCase().trim() === tag.toLocaleLowerCase().trim();
+          {result.tags.split(',').map(t => {
+            const tag = t.toLocaleLowerCase().trim();
+            const selected = query?.toLocaleLowerCase().trim() === tag;
             return (
               <button
                 className={classNames(

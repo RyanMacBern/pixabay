@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import { throttle } from 'lodash';
 
 import settings from './settings.json';
@@ -51,6 +51,9 @@ const App = () => {
   const [runSearch, setRunSearch] = React.useState<boolean>(false);
   const [savesOpen, setSavesOpen] = React.useState<boolean>(false);
 
+  // surface Search's setQuery so we can override its input text when a user clicks a tag
+  let setInputText: Dispatch<string> | undefined;
+
   const totalPages = max && Math.floor(max / PER_PAGE);
   const [saves, setSaves] = useLocalStorageJson('saves', []);
   const savesMap: Map<number, Save> = saves instanceof Array ? new Map(saves.map((save: Save) => [save.id, save])) : new Map();
@@ -100,12 +103,13 @@ const App = () => {
   };
 
   const tagClick = React.useCallback((q: string) => {
+    setInputText && setInputText(q);
     setQuery(q);
     setPage(1);
     setMax(0);
     setRunSearch(true);
     backToTop();
-  }, []);
+  }, [setInputText]);
 
   const nextPage = React.useCallback(() => {
     if (hits?.length && page < totalPages && !loading && !error) {
@@ -172,7 +176,9 @@ const App = () => {
           <CameraIcon />
         </a>
       </div>
-      <Search onSubmit={onSubmit} />
+      <Search onSubmit={onSubmit}>
+        {({ setQuery }) => { setInputText = setQuery }}
+      </Search>
       <Results
         results={hits}
         loading={loading}
