@@ -9,22 +9,21 @@ import Button from '../forms/Button';
 import styles from './Search.module.css'
 
 interface Props {
-  onSubmit: (query: string, category: string) => void,
-  children: (c: ChildrenProps) => void
+  query: string,
+  onSubmit: (query: string, category: string) => void
 }
 
-interface ChildrenProps {
-  setQuery: (query: string) => void,
-};
-
 const Search = (props: Props) => {
-  const { onSubmit, children } = props;
+  const { onSubmit, query: initialQuery } = props;
 
-  const [query, setQuery] = React.useState<string>('');
+  const [query, setQuery] = React.useState<string>(initialQuery);
   const [category, setCategory] = React.useState<string>('');
 
-  return <>
-    {children({ setQuery })}
+  React.useEffect(() => {
+    setQuery(initialQuery);
+  }, [initialQuery]);
+
+  return (
     <Form className={styles.form} onSubmit={() => onSubmit(query, category)}>
       <div className={styles.fields}>
         <TextInput
@@ -44,7 +43,7 @@ const Search = (props: Props) => {
       </div>
       <Button className={styles.button} text="Search" />
     </Form>
-  </>;
+  );
 };
 
-export default Search;
+export default React.memo(Search);
