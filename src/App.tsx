@@ -113,7 +113,6 @@ const App = () => {
 
   const nextPage = React.useCallback(() => {
     if (hits?.length && page < totalPages && !loading && !error) {
-      console.log('load page', page + 1);
       setLoading(true);
       setPage(page + 1);
       setRunSearch(true);
